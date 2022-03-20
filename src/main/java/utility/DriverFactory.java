@@ -1,4 +1,4 @@
-package Utility;
+package utility;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -34,6 +34,8 @@ public class DriverFactory {
             // Implicit wait
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             // Explicit wait
+            wait = new WebDriverWait(driver, 10);
+
 
         }
         return driver;
@@ -42,6 +44,7 @@ public class DriverFactory {
     public static WebDriverWait getWait() {
         return wait;
     }
+
 
 
     public static void quit() {

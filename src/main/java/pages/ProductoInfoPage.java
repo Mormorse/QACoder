@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ProductoInfoPage {
+public class ProductoInfoPage extends IndexPage {
 
     @FindBy(xpath = "//h2[normalize-space()='Sony vaio i5']")
     WebElement laptop;
@@ -25,7 +25,11 @@ public class ProductoInfoPage {
         PageFactory.initElements(driver, this);
     }
 
-    public String getPrecio() { return precio.getText();  }
+    public String getPrecio() {
+
+        return (precio.getText());
+    }
+
 
     public String getLaptop(){
         return laptop.getText();

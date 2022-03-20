@@ -1,14 +1,13 @@
-import Utility.DriverFactory;
-import Utility.PropertiesFile;
+import utility.DriverFactory;
+import utility.PropertiesFile;
+import org.checkerframework.checker.units.qual.C;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.IndexPage;
-import pages.LaptopsPage;
-import pages.NavBarPage;
-import pages.ProductoInfoPage;
+import pages.*;
 import org.openqa.selenium.Alert;
 
 
@@ -23,10 +22,13 @@ public class Proyecto {
         driver.navigate().to(url);
         String Precio, Laptop;
 
-        IndexPage indexPage = new IndexPage(driver);
+        IndexPage indexPage = new IndexPage();
         LaptopsPage laptopsPage = new LaptopsPage(driver);
         ProductoInfoPage productoInfoPage = new ProductoInfoPage(driver);
         NavBarPage navBarPage = new NavBarPage(driver);
+        CartPage cartPage = new CartPage();
+        FormPage formPage = new FormPage();
+        ValidatePage validatePage = new ValidatePage();
 
         // Click Laptop
         indexPage.clickLaptopMenu();
@@ -48,6 +50,28 @@ public class Proyecto {
         alert.accept();
 
         navBarPage.navToCart();
+
+        Assert.assertEquals(Laptop, cartPage.getTittle());
+        Assert.assertEquals(Precio, cartPage.getPrice());
+
+        cartPage.clickOrder();
+
+
+        formPage.inputName("Matias Anriquez");
+        formPage.inputCountry("Argentina");
+        formPage.inputCity("Buenos Aires");
+        formPage.inputCard("404585747878547");
+        formPage.inputMonth("06");
+        formPage.inputYear("2025");
+
+        formPage.clickPurchase();
+
+
+        Assert.assertEquals(validatePage.getTitle(), "Thank you for your purchase!");
+
+
+
+
 
 
 
