@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.By.xpath;
 
-public class LaptopsPage {
+public class LaptopsPage extends BasePage {
     @FindBy (xpath = "//a[contains(text(),'Sony vaio i5')]")
     WebElement laptopsPageFirstProduct;
 
@@ -21,8 +21,8 @@ public class LaptopsPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickLaptopsFirstProduct(int time){
-        WebDriverWait wait = new WebDriverWait(driver,time);
+    public void clickLaptopsFirstProduct(){
         wait.until(ExpectedConditions.elementToBeClickable(laptopsPageFirstProduct)).click();
     }
+
 }

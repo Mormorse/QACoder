@@ -1,5 +1,6 @@
 package pages;
 
+import utility.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.WebElement;
@@ -11,14 +12,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
 
     public static WebDriver driver;
-    private final WebDriverWait wait;
-    @FindBy (linkText = "Laptops")
+    public final WebDriverWait wait;
+    @FindBy (xpath = "(//a[normalize-space()='Laptops'])[1]")
     WebElement laptopMenu;
 
 
     public BasePage(){
         this.driver = utility.DriverFactory.getDriver();
-        this.wait = utility.DriverFactory.getWait();
+        this.wait = DriverFactory.getWait();
         PageFactory.initElements(driver, this);
 
     }
@@ -27,7 +28,7 @@ public class BasePage {
         return driver;
     }
     public void clickLaptopMenu(){
-        laptopMenu.click();
+        wait.until(ExpectedConditions.elementToBeClickable(laptopMenu)).click();
     }
     public String getTextFromWebElement(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));

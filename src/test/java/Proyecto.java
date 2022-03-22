@@ -9,17 +9,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.*;
 import org.openqa.selenium.Alert;
-
+// import org.testng.annotations.BeforeTest;
+// import org.testng.annotations.AfterTest;
 
 
 public class Proyecto {
     private String url = PropertiesFile.getProperty("url");
     private WebDriver driver = DriverFactory.getDriver();
 
-    @BeforeTest
-    public void beforeTest(){
-        driver.navigate().to(url);
-    }
+   // @BeforeTest
+   // public void beforeTest(){
+  //      driver.navigate().to(url);
+ //   }
 
 
     @Test
@@ -39,7 +40,7 @@ public class Proyecto {
         // Click Laptop
         basePage.clickLaptopMenu();
 
-        laptopsPage.clickLaptopsFirstProduct(5);
+        laptopsPage.clickLaptopsFirstProduct();
 
 
         Laptop = productoInfoPage.getLaptop();
@@ -75,17 +76,17 @@ public class Proyecto {
 
         Assert.assertEquals(validatePage.getTitle(), "Thank you for your purchase!");
 
-
+        driver.quit();
         }
 
-    @AfterTest
-    public void afterTest(){
-        System.out.println("Finalizan las pruebas");
-        driver.quit();
+//    @AfterTest
+//    public void afterTest(){
+//        System.out.println("Finalizan las pruebas");
 
 
 
 
 
-    }
+
+
 }

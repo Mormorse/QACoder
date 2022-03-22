@@ -39,12 +39,7 @@ public class CartPage extends BasePage {
     public void clickOrder() {
         placeOrderButton.click();
     }
-    /*
-    public void clickOrder() {
-        wait.until(ExpectedConditions.elementToBeClickable(placeOrderButton));
-        clickOnWebElement(placeOrderButton);
-    }
-    */
+
 
 }
 

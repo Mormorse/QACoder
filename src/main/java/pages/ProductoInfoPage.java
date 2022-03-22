@@ -34,13 +34,7 @@ public class ProductoInfoPage extends BasePage {
     public String getLaptop(){
         return laptop.getText();
     }
-    /*
-    public void clickAddCarrito(int time){
-        WebDriverWait wait = new WebDriverWait(driver,time);
-        wait.until(ExpectedConditions.elementToBeClickable(addCarrito)).click();
 
-    }
-    */
     public void clickAddToCart(){
         addToCart.click();
     }
