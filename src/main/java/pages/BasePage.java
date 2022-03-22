@@ -27,9 +27,12 @@ public class BasePage {
     public WebDriver getDriver(){
         return driver;
     }
+
+
     public void clickLaptopMenu(){
-        wait.until(ExpectedConditions.elementToBeClickable(laptopMenu)).click();
+       clickOnWebElement(laptopMenu);
     }
+
     public String getTextFromWebElement(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
         return element.getText();
@@ -41,7 +44,7 @@ public class BasePage {
     }
 
     public void clickOnWebElement(WebElement element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
 }

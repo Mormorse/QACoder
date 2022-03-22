@@ -9,18 +9,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.*;
 import org.openqa.selenium.Alert;
-// import org.testng.annotations.BeforeTest;
-// import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
 
 
 public class Proyecto {
     private String url = PropertiesFile.getProperty("url");
     private WebDriver driver = DriverFactory.getDriver();
 
-   // @BeforeTest
-   // public void beforeTest(){
-  //      driver.navigate().to(url);
- //   }
+   @BeforeTest
+   public void beforeTest(){
+   driver.navigate().to(url);
+   }
 
 
     @Test
@@ -79,10 +79,10 @@ public class Proyecto {
         driver.quit();
         }
 
-//    @AfterTest
-//    public void afterTest(){
-//        System.out.println("Finalizan las pruebas");
-
+   @AfterTest
+   public void afterTest() {
+       System.out.println("Finalizan las pruebas");
+   }
 
 
 

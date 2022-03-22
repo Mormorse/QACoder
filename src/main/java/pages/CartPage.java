@@ -37,7 +37,7 @@ public class CartPage extends BasePage {
     }
 
     public void clickOrder() {
-        placeOrderButton.click();
+        clickOnWebElement(placeOrderButton);
     }
 
 

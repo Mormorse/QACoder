@@ -18,6 +18,6 @@ public class NavBarPage extends BasePage {
     }
 
     public void navToCart(){
-        goToCart.click();
+        clickOnWebElement(goToCart);
     }
 }

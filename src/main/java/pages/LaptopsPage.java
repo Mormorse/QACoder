@@ -22,7 +22,8 @@ public class LaptopsPage extends BasePage {
     }
 
     public void clickLaptopsFirstProduct(){
-        wait.until(ExpectedConditions.elementToBeClickable(laptopsPageFirstProduct)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(laptopsPageFirstProduct));
+                clickOnWebElement(laptopsPageFirstProduct);
     }
 
 }

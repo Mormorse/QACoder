@@ -57,7 +57,7 @@ public class FormPage extends BasePage{
     }
 
     public void clickPurchase() {
-        formPurchase.click();
+        clickOnWebElement(formPurchase);
     }
 
 }
