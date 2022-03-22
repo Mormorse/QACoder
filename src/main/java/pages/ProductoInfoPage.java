@@ -27,15 +27,15 @@ public class ProductoInfoPage extends BasePage {
 
     public String getPrecio() {
 
-        return (precio.getText());
+        return getTextFromWebElement(precio);
     }
 
 
     public String getLaptop(){
-        return laptop.getText();
+        return getTextFromWebElement(laptop);
     }
 
     public void clickAddToCart(){
-        addToCart.click();
+        clickOnWebElement(addToCart);
     }
 }

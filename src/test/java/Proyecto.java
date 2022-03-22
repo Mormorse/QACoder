@@ -79,11 +79,10 @@ public class Proyecto {
         driver.quit();
         }
 
-   @AfterTest
+  @AfterTest
    public void afterTest() {
        System.out.println("Finalizan las pruebas");
    }
-
 
 
 
